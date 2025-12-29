@@ -2,7 +2,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Navigation from './components/Navigation';
-import User from './components/User';
+import Aside from './components/Aside';
+import Profile from './components/Profile';
 
 export default function App() {
   return (
@@ -11,13 +12,15 @@ export default function App() {
         <Col className="d-flex flex-column">
           <Navigation />
           <div className="my-auto">
-            <User />
+            <Profile />
           </div>
         </Col>
         <Col md={6} className="border-start border-end">
           2 of 3
         </Col>
-        <Col>3 of 3</Col>
+        <Col>
+          <Aside />
+        </Col>
       </Row>
     </Container>
   );

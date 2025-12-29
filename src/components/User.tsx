@@ -1,8 +1,15 @@
 import { Image } from 'react-bootstrap';
 
-export default function User() {
+interface UserProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export default function User({ children, className = '' }: UserProps) {
   return (
-    <div className="d-flex bg-light justify-content-between align-items-center mx-3 px-3 py-2 rounded-pill">
+    <div
+      className={`d-flex bg-light justify-content-between align-items-center px-3 py-2 rounded-pill ${className}`}
+    >
       <div>
         <Image src="https://placehold.co/50x50" roundedCircle />
       </div>
@@ -10,9 +17,7 @@ export default function User() {
         <strong>Andrés Marulanda</strong>
         <span>@andresmarulandam</span>
       </div>
-      <div>
-        <i className="bi bi-three-dots"></i>
-      </div>
+      {children}
     </div>
   );
 }
