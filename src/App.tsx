@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navigation from './components/Navigation';
 import Aside from './components/Aside';
 import Profile from './components/Profile';
+import Tweet from './components/Tweet';
 
 export default function App() {
   return (
@@ -15,8 +16,12 @@ export default function App() {
             <Profile />
           </div>
         </Col>
-        <Col md={6} className="border-start border-end">
-          2 of 3
+        <Col md={6} className="px-0 border-start border-end">
+          <Tweet />
+          <Tweet />
+          <Tweet />
+          <Tweet />
+          <Tweet />
         </Col>
         <Col>
           <Aside />
