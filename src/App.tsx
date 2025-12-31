@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Aside from './components/Aside';
 import Profile from './components/Profile';
 import Tweet from './components/Tweet';
+import Create from './components/Create';
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
           </div>
         </Col>
         <Col md={6} className="px-0 border-start border-end">
+          <h1 className="fs-4 m-2">Home</h1>
+          <Create />
           <Tweet />
           <Tweet />
           <Tweet />
