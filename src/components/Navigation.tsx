@@ -6,8 +6,11 @@ export default function Navigation() {
   const user = null;
   return (
     <nav>
-      <Nav defaultActiveKey="/home" className="flex-column fs-5">
-        <NavItem icon="twitter" className="fs-2" />
+      <Nav
+        defaultActiveKey="/home"
+        className="flex-column fs-5 align-items-start"
+      >
+        <NavItem icon="twitter" className="fs-2 mt-2" />
         <NavItem icon="house-door-fill" href="/home" label="Home" />
         <NavItem icon="hash" href="/" label="Explore" />
         {user && (
@@ -19,8 +22,8 @@ export default function Navigation() {
             <NavItem icon="twitter" href="/" label="Twitter Blue" />
             <NavItem icon="person" href="/" label="Profile" />
 
-            <div className="d-flex">
-              <Button className="rounded-pill flex-grow-1 m-3 p-2 fs-4">
+            <div className="d-flex align-self-stretch ">
+              <Button className="rounded-pill flex-grow-1 m-3 p-2 fs-4 text-white">
                 Tweet
               </Button>
             </div>
