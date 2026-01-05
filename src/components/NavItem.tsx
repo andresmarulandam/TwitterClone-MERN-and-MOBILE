@@ -9,20 +9,24 @@ interface NavItemProps {
   iconClassName?: string;
 }
 
-const NavLinkStyled = styled(Nav.Link)(
-  {
-    borderRadius: '800px',
-    color: 'rgb(33,37,41)',
-    paddingRight: '48px',
+const NavLinkStyled = styled(Nav.Link)(({ theme }) => {
+  const color = theme.colors['gray-900'];
+  const backgroundColor = theme.colors['gray-200'];
+
+  return {
+    borderRadius: theme.border.radius.pill,
+    color,
+    paddingRight: theme.space[4],
     '&:hover': {
-      backgroundColor: 'rgb(248,249,250)',
-      color: 'rgb(33,37,41)',
+      backgroundColor,
+      color,
     },
-  },
-  ({ active }) => ({
-    fontWeight: active ? 'bold' : 'normal',
-  }),
-);
+    '&.active': {
+      backgroundColor,
+      color,
+    },
+  };
+});
 
 export default function NavItem({
   icon,
