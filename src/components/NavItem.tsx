@@ -21,10 +21,6 @@ const NavLinkStyled = styled(Nav.Link)(({ theme }) => {
       backgroundColor,
       color,
     },
-    '&.active': {
-      backgroundColor,
-      color,
-    },
   };
 });
 
