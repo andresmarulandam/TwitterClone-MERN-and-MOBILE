@@ -2,12 +2,12 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import { formatNumber } from '../utils/utils';
 
 interface TweetProps {
-  createdAt: string;
-  content: string;
-  name: string;
-  photo: string;
-  username: string;
-  statistics: StatisticsTweetProps;
+  createdAt?: string;
+  content?: string;
+  name?: string;
+  photo?: string;
+  username?: string;
+  statistics?: StatisticsTweetProps;
 }
 
 interface StatisticsTweetProps {

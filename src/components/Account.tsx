@@ -1,21 +1,17 @@
-import { Button } from 'react-bootstrap';
-import Profile from './Profile';
+import Button from 'react-bootstrap/Button';
 
 export default function Account() {
-  const user = null;
-  return user ? (
-    <Profile />
-  ) : (
+  return (
     <div className="d-flex">
-      <div className="d-flex flex-grow-1 flex-column">
+      <div className="d-flex flex-grow-1 flex-column mt-3">
         <h2 className="fs-5">New on Twitter?</h2>
-        <Button className="rounded-pill flex-grow-1 m-3 p-2 fs-6">
+        <Button className="rounded-pill flex-grow-1 m-3 p-2 fs-6 text-white">
           Sign Up
         </Button>
 
         <h2 className="fs-5">Already have an account?</h2>
         <Button
-          variant="secondary"
+          variant="light"
           className="rounded-pill flex-grow-1 m-3 p-2 fs-6"
         >
           Sign In

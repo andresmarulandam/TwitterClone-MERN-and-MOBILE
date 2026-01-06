@@ -10,7 +10,11 @@ export default function Navigation() {
         defaultActiveKey="/home"
         className="flex-column fs-5 align-items-start"
       >
-        <NavItem icon="twitter" className="fs-2 mt-2" />
+        <NavItem
+          icon="twitter"
+          className="fs-2 mt-2"
+          iconStyle={{ color: '#1DA1F2' }}
+        />
         <NavItem icon="house-door-fill" href="/home" label="Home" />
         <NavItem icon="hash" href="/" label="Explore" />
         {user && (

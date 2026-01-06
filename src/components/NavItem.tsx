@@ -7,6 +7,7 @@ interface NavItemProps {
   href?: string;
   className?: string;
   iconClassName?: string;
+  iconStyle?: React.CSSProperties;
 }
 
 const NavLinkStyled = styled(Nav.Link)(({ theme }) => {
@@ -30,10 +31,11 @@ export default function NavItem({
   href,
   className = 'text-dark',
   iconClassName = 'fs-4',
+  iconStyle,
 }: NavItemProps) {
   return (
     <NavLinkStyled href={href} className={className}>
-      <i className={`bi bi-${icon} me-3 ${iconClassName}`} />
+      <i className={`bi bi-${icon} me-3 ${iconClassName}`} style={iconStyle} />
       {label}
     </NavLinkStyled>
   );
