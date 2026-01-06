@@ -1,13 +1,17 @@
 import { Route, Routes } from 'react-router';
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+
 import Navigation from './components/Navigation';
 import Aside from './components/Aside';
-import Home from './pages/Home';
 import Profile from './components/Profile';
+
+import Home from './pages/Home';
 import Compose from './pages/Compose';
+import SignIn from './pages/Signin';
+import SignUp from './pages/SignUp';
+import Post from './pages/Post';
 
 export default function App() {
   const user = null;
@@ -22,6 +26,9 @@ export default function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/compose" element={<Compose />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/tweet/:id" element={<Post />} />
           </Routes>
         </Col>
         <Col>
