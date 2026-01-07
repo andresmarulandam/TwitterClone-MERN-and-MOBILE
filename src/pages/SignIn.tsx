@@ -1,7 +1,10 @@
 import { ErrorMessage, Formik } from 'formik';
+import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
+import UserContext from '../containers/UserContext';
+import { useNavigate } from 'react-router';
 
 const signInSchema = z.object({
   email: z
@@ -19,6 +22,8 @@ const signInSchema = z.object({
 type SignInValues = z.infer<typeof signInSchema>;
 
 export default function SignIn() {
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
   const initialValues: SignInValues = {
     email: '',
     password: '',
@@ -29,8 +34,13 @@ export default function SignIn() {
       <Formik<SignInValues>
         initialValues={initialValues}
         onSubmit={(values, { setSubmitting }) => {
-          console.log('values:', values);
+          setUser({
+            photo: 'https://placeholder.com/40x40',
+            name: 'Usuario de Prueba',
+            username: 'usuario_prueba',
+          });
           setSubmitting(false);
+          navigate('/home');
         }}
         validationSchema={toFormikValidationSchema(signInSchema)}
       >

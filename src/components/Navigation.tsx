@@ -1,9 +1,11 @@
 import Nav from 'react-bootstrap/Nav';
 import NavItem from './NavItem';
 import Button from 'react-bootstrap/Button';
+import { useContext } from 'react';
+import UserContext from '../containers/UserContext';
 
 export default function Navigation() {
-  const user = null;
+  const { user } = useContext(UserContext);
   return (
     <nav>
       <Nav
@@ -20,12 +22,12 @@ export default function Navigation() {
         <NavItem icon="hash" to="/" label="Explore" />
         {user && (
           <>
-            <NavItem icon="bell" to="/" label="Notifications" />
-            <NavItem icon="envelope" to="/" label="Messages" />
-            <NavItem icon="card-list" to="/" label="Lists" />
-            <NavItem icon="bookmark" to="/" label="Bookmarks" />
-            <NavItem icon="twitter" to="/" label="Twitter Blue" />
-            <NavItem icon="person" to="/" label="Profile" />
+            <NavItem icon="bell" to="/notifications" label="Notifications" />
+            <NavItem icon="envelope" to="/messages" label="Messages" />
+            <NavItem icon="card-list" to="/lists" label="Lists" />
+            <NavItem icon="bookmark" to="/bookmarks" label="Bookmarks" />
+            <NavItem icon="twitter" to="/blue" label="Twitter Blue" />
+            <NavItem icon="person" to="/profile" label="Profile" />
 
             <div className="d-flex align-self-stretch ">
               <Button className="rounded-pill flex-grow-1 m-3 p-2 fs-4 text-white">
