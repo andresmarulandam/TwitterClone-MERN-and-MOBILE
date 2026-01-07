@@ -16,15 +16,17 @@ const signInSchema = z.object({
     .max(16, { error: 'Maximum 16 characters' }),
 });
 
+type SignInValues = z.infer<typeof signInSchema>;
+
 export default function SignIn() {
-  const initialValues = {
+  const initialValues: SignInValues = {
     email: '',
     password: '',
   };
   return (
     <>
       <h1 className="fs-4 m-3 fw-bolder">Sign in</h1>
-      <Formik
+      <Formik<SignInValues>
         initialValues={initialValues}
         onSubmit={(values, { setSubmitting }) => {
           console.log('values:', values);
@@ -40,6 +42,8 @@ export default function SignIn() {
           handleBlur,
           handleSubmit,
           isSubmitting,
+          isValid,
+          dirty,
         }) => (
           <Form onSubmit={handleSubmit}>
             <Form.Group className="m-3">
@@ -84,7 +88,7 @@ export default function SignIn() {
               type="submit"
               variant="primary"
               className="rounded-pill m-3 px-4 text-white"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !isValid || !dirty}
             >
               Submit
             </Button>
