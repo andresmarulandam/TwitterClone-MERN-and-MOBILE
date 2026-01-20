@@ -1,23 +1,20 @@
-import { ThemeProvider } from '@emotion/react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import Tweet from './Tweet';
-import theme from '../theme';
 import { getTweet } from '../fixtures/tweet.fixture';
+import { renderWithTheme } from '../test/utils';
 
 describe('Tweet component', () => {
   test('render basic information', () => {
     const { user, content, createdAt } = getTweet();
 
-    render(
-      <ThemeProvider theme={theme}>
-        <Tweet
-          name={user.name}
-          username={user.username}
-          photo={user.photo}
-          content={content}
-          createdAt={createdAt}
-        />
-      </ThemeProvider>,
+    renderWithTheme(
+      <Tweet
+        name={user.name}
+        username={user.username}
+        photo={user.photo}
+        content={content}
+        createdAt={createdAt}
+      />,
     );
 
     expect(screen.getByText(user.name)).toBeTruthy();
