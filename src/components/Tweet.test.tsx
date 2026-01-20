@@ -2,17 +2,21 @@ import { ThemeProvider } from '@emotion/react';
 import { render, screen } from '@testing-library/react';
 import Tweet from './Tweet';
 import theme from '../theme';
-import { getUser } from '../fixtures/user.fixture';
+import { getTweet } from '../fixtures/tweet.fixture';
 
 describe('Tweet component', () => {
   test('render basic information', () => {
-    const user = getUser();
-    const content = 'Hello world';
+    const { user, content, createdAt } = getTweet();
 
-    console.log(user);
     render(
       <ThemeProvider theme={theme}>
-        <Tweet name={user.name} username={user.username} content={content} />
+        <Tweet
+          name={user.name}
+          username={user.username}
+          photo={user.photo}
+          content={content}
+          createdAt={createdAt}
+        />
       </ThemeProvider>,
     );
 

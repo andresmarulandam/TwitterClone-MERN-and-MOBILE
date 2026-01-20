@@ -19,10 +19,12 @@ const UserContext = createContext<UserContextType>({
 
 export function UserProvider({
   children,
+  overrides,
 }: {
   children: React.ReactNode;
+  overrides?: { user: UserProps | null };
 }): React.ReactElement {
-  const [user, setUser] = useState<UserProps>(null);
+  const [user, setUser] = useState<UserProps>(overrides?.user ?? null);
 
   useEffect(() => {
     const json = localStorage.getItem('user');
